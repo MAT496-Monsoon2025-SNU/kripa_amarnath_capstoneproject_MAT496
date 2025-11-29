@@ -1,6 +1,7 @@
 # kripa_amarnath_capstoneproject_MAT496
 
 Portfolio Analysis
+
 Overview
 
 This project is an advanced conversational AI agent designed to act as an "Autonomous Hedge Fund Team." A user interacts with the system, providing a stock ticker (e.g., RELIANCE.NS, TCS.NS). The system orchestrates a team of specialist agents—a Quantitative Analyst (for technical signals) and a Fundamental Researcher (for PDF analysis)—to research the asset in parallel.
