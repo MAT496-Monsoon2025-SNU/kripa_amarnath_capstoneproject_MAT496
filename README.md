@@ -1,14 +1,14 @@
 # kripa_amarnath_capstoneproject_MAT496
 
-Portfolio Analysis
+# Portfolio Analysis
 
-Overview
+# Overview
 
 This project is an advanced conversational AI agent designed to act as an "Autonomous Hedge Fund Team." A user interacts with the system, providing a stock ticker (e.g., RELIANCE.NS, TCS.NS). The system orchestrates a team of specialist agents—a Quantitative Analyst (for technical signals) and a Fundamental Researcher (for PDF analysis)—to research the asset in parallel.
 
 Using yfinance for market data and ChromaDB for internal knowledge (PDFs), the agents fetch real-time price action, calculate Entry/Exit zones, and cross-reference financial health. The system then consolidates these findings into a comprehensive "Buy/Sell/Wait" report. The entire application state is managed using LangGraph, featuring persistent memory to track the analysis context.
 
-Reason for picking up this project
+# Reason for picking up this project
 
 I'm interested in mathematical finance and this project ended up being a good blend of both finance and LLM. This project was selected to synthesise and demonstrate all the major advanced topics covered in the course:
 
@@ -30,7 +30,7 @@ Parallelisation: The main graph orchestrator executes the Technical Analysis and
 
 Map-Reduce: The system "maps" the ticker to both specialists and "reduces" their independent findings into a single strategic verdict.
 
-The 8-Step Plan
+# The Plan
 
 [TODO] Step 1: Define State & Graph with Persistent Memory.
 Defined AgentState to hold ticker, technical signals, and fundamental summaries. Initialized memory checkpointers.
