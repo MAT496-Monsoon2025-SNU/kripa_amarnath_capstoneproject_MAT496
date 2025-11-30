@@ -32,7 +32,7 @@ Map-Reduce: The system "maps" the ticker to both specialists and "reduces" their
 
 # The Plan
 
-[TODO] Step 1: Define State & Graph with Persistent Memory.
+[DONE] Step 1: Define State & Graph with Persistent Memory.
 Defined AgentState to hold ticker, technical signals, and fundamental summaries. Initialized memory checkpointers.
 
 [TODO] Step 2: Implement Core Tools.
