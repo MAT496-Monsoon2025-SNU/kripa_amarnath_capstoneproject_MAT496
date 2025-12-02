@@ -44,7 +44,7 @@ Built the dedicated technical node to handle price logic using mock data.
 [DONE] Step 4: Create "Research Agent" Node.
 Built the dedicated RAG node for handling PDF queries using mock text.
 
-[TODO] Step 5: Implement Map-Reduce Orchestrator.
+[DONE] Step 5: Implement Map-Reduce Orchestrator.
 Built the Main Graph to coordinate the workflow. Verified that the "Aggregator" node correctly combined the mock results from both branches.
 
 [TODO] Step 6: Integrate Real APIs (yfinance & ChromaDB).
