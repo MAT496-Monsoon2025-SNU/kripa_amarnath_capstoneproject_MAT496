@@ -35,13 +35,13 @@ Map-Reduce: The system "maps" the ticker to both specialists and "reduces" their
 [DONE] Step 1: Define State & Graph with Persistent Memory.
 Defined AgentState to hold ticker, technical signals, and fundamental summaries. Initialized memory checkpointers.
 
-[TODO] Step 2: Implement Core Tools.
+[DONE] Step 2: Implement Core Tools.
 Created placeholder tools returning hardcoded "Buy at 100" signals. This allowed verification of the tool-calling logic without hitting Yahoo Finance API limits during initial testing.
 
-[TODO] Step 3: Create "Quant Agent" Node.
+[DONE] Step 3: Create "Quant Agent" Node.
 Built the dedicated technical node to handle price logic using mock data.
 
-[TODO] Step 4: Create "Research Agent" Node.
+[DONE] Step 4: Create "Research Agent" Node.
 Built the dedicated RAG node for handling PDF queries using mock text.
 
 [TODO] Step 5: Implement Map-Reduce Orchestrator.
