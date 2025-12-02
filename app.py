@@ -1,4 +1,3 @@
-
 import streamlit as st
 import os
 import yfinance as yf
@@ -31,12 +30,20 @@ st.title("📈 HedgeGraph India: Autonomous Alpha Team")
 st.markdown("### *Quant + Fundamental AI Agents working in Parallel*")
 
 # --- 2. SETUP & KEYS ---
-if "GROQ_API_KEY" not in os.environ:
-    os.environ["GROQ_API_KEY"] = st.sidebar.text_input("Groq API Key:", type="password")
+# FIXED: We set the default value to your key so it works instantly
+# NOTE: Verify the key inside the quotes below is your full key!
+default_key = "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"
+
+api_input = st.sidebar.text_input("Groq API Key", value=default_key, type="password")
+os.environ["GROQ_API_KEY"] = api_input
 
 llm = None
 if os.environ.get("GROQ_API_KEY"):
-    llm = ChatGroq(model="llama-3.1-70b-versatile", temperature=0)
+    # FIXED: Updated model from 3.1 (Decommissioned) to 3.3
+    try:
+        llm = ChatGroq(model="llama-3.3-70b-versatile", temperature=0)
+    except Exception as e:
+        st.error(f"LLM Init Error: {e}")
 
 # --- 3. DATA & TOOLS ---
 
@@ -44,6 +51,7 @@ if os.environ.get("GROQ_API_KEY"):
 def get_vectorstore():
     try:
         embedding = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+        # Check if DB exists before trying to load
         if os.path.exists("./chroma_db"):
             return Chroma(persist_directory="./chroma_db", embedding_function=embedding)
     except:
@@ -57,8 +65,11 @@ def get_trade_signals(ticker: str):
     """Calculates Support, Resistance, Bollinger Bands, and Stop Loss."""
     try:
         stock = yf.Ticker(ticker)
+        # Fetch 1 year of data
         hist = stock.history(period="1y")
-        if hist.empty: return "Error: No data"
+        
+        if hist.empty: 
+            return "Error: No data found for ticker."
             
         # Indicators
         hist['Support'] = hist['Low'].rolling(window=60).min()
@@ -67,6 +78,10 @@ def get_trade_signals(ticker: str):
         hist['STD_20'] = hist['Close'].rolling(window=20).std()
         hist['BB_Lower'] = hist['SMA_20'] - (hist['STD_20'] * 2)
         
+        # Check if we have enough data for the rolling windows
+        if len(hist) < 60:
+            return "Error: Not enough historical data for analysis."
+
         curr = hist.iloc[-1]
         price = curr['Close']
         stop_loss = curr['Support'] * 0.97
@@ -153,9 +168,11 @@ if st.button("Initialize Analysis"):
             st.write("🔹 Research Agent: Querying Vector Database for Risks...")
             
             config = {"configurable": {"thread_id": st.session_state.thread_id}}
-            result = app.invoke({"ticker": ticker}, config=config)
-            
-            status.update(label="Analysis Complete", state="complete", expanded=False)
-            
-        st.divider()
-        st.markdown(result['final_report'])
+            try:
+                result = app.invoke({"ticker": ticker}, config=config)
+                status.update(label="Analysis Complete", state="complete", expanded=False)
+                st.divider()
+                st.markdown(result['final_report'])
+            except Exception as e:
+                status.update(label="Analysis Failed", state="error", expanded=False)
+                st.error(f"Error during execution: {e}")
