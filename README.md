@@ -64,4 +64,4 @@ Test the full flow with live tickers to ensure the math and text analysis align 
 I had planned to achieve the development of "HedgeGraph India," an autonomous multi-agent system capable of performing institutional-grade stock analysis. The primary objective was to solve the problem of information overload by orchestrating two specialized agents—a Quantitative Agent for technical analysis and a Research Agent for fundamental retrieval—using a Map-Reduce architecture.
 I think I have achieved the conclusion satisfactorily.
 
-
+Link forthe video: https://drive.google.com/file/d/1kHp0gdyGrKkF8USN7TdzzCEi5j-5wGNy/view?usp=drive_link
