@@ -47,17 +47,17 @@ Built the dedicated RAG node for handling PDF queries using mock text.
 [DONE] Step 5: Implement Map-Reduce Orchestrator.
 Built the Main Graph to coordinate the workflow. Verified that the "Aggregator" node correctly combined the mock results from both branches.
 
-[TODO] Step 6: Integrate Real APIs (yfinance & ChromaDB).
+[DONE] Step 6: Integrate Real APIs (yfinance & ChromaDB).
 Upgraded Tools: Replaced mock tools with live logic.
 
 Logic: Implemented Pandas calculations for Entry (Support/Lower Band), Exit (Resistance), and Stop Loss (3% risk).
 
 RAG: Implemented PDF ingestion for Reliance/TCS annual reports.
 
-[TODO] Step 7: Deploy & Build Web Interface.
+[DONE] Step 7: Deploy & Build Web Interface.
 Create a streamlit web app (app.py) that acts as the front end for the LangGraph agent.
 
-[TODO] Step 8: Final Test.
+[DONE] Step 8: Final Test.
 Test the full flow with live tickers to ensure the math and text analysis align in the final report.
 
 
