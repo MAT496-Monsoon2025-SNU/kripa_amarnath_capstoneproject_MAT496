@@ -60,4 +60,8 @@ Create a streamlit web app (app.py) that acts as the front end for the LangGraph
 [DONE] Step 8: Final Test.
 Test the full flow with live tickers to ensure the math and text analysis align in the final report.
 
+# Conclusion
+I had planned to achieve the development of "HedgeGraph India," an autonomous multi-agent system capable of performing institutional-grade stock analysis. The primary objective was to solve the problem of information overload by orchestrating two specialized agents—a Quantitative Agent for technical analysis and a Research Agent for fundamental retrieval—using a Map-Reduce architecture.
+I think I have achieved the conclusion satisfactorily.
+
 
